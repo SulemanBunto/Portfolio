@@ -168,7 +168,8 @@
                     <div class="hero__text">
                         <span>Portfolio</span>
                         <h2>Suleman Nouman</h2>
-                        <a href="#services" class="primary-btn" id="scroll-button-1">See More About Me</a>
+                        <!-- Remove href, just trigger smooth scroll with JavaScript -->
+                        <a href="javascript:void(0);" class="primary-btn" id="scroll-button-1">See More About Me</a>
                     </div>
                 </div>
             </div>
@@ -177,90 +178,96 @@
 </section>
 <!-- Hero Section End -->
 
-
-
-<!-- Smooth Scroll -->
-    <script>
-        document.getElementById('scroll-button-1').addEventListener('click', function(event) {
-            event.preventDefault(); // Prevent default anchor link behavior
-            const targetSection = document.querySelector('#services');
-            targetSection.scrollIntoView({ behavior: 'smooth' });
-        });
-    </script>
-    
-    <!-- Services Section Begin -->
-    <section class="services spad" id="services">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="services__title">
-                        <div class="section-title">
-                            <span>My services</span>
-                            <h2>What I Offer?</h2>
-                        </div>
-                        <p>Whether you’re halfway through the editing process, or you haven’t even started, my
-                                    post production services can put the finishing touches.</p>
-                        <a href="#work" class="primary-btn" id="scroll-button-2">See for yourself</a>
+<!-- Services Section Begin -->
+<section class="services spad" id="services">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="services__title">
+                    <div class="section-title">
+                        <span>My services</span>
+                        <h2>What I Offer?</h2>
                     </div>
+                    <p>Whether you’re halfway through the editing process, or you haven’t even started, my
+                        post-production services can put the finishing touches.</p>
+                    <!-- Just a click event -->
+                    <a href="javascript:void(0);" class="primary-btn" id="scroll-button-2">See for yourself</a>
                 </div>
-                <div class="col-lg-8">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-6">
-                            <div class="services__item">
-                                <div class="services__item__icon">
-                                    <img src="img/icons/text-size.png" alt="">
-                                </div>
-                                <h4>Typography</h4>
-                                <p>Bored of Simple Captions? My unique way of Typography makes your videos feel alive and
-                                    keeps the audience engaged.
-                                </p>
+            </div>
+            <div class="col-lg-8">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="services__item">
+                            <div class="services__item__icon">
+                                <img src="img/icons/text-size.png" alt="">
                             </div>
+                            <h4>Typography</h4>
+                            <p>Bored of Simple Captions? My unique way of Typography makes your videos feel alive and
+                                keeps the audience engaged.
+                            </p>
                         </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6">
-                            <div class="services__item">
-                                <div class="services__item__icon">
-                                    <img src="img/icons/si-1.png" alt="">
-                                </div>
-                                <h4>Color Grading</h4>
-                                <p>Elevate your visuals with expert color grading that enhances every detail, 
-                                    sets the perfect mood, and brings your creative vision to life.</p>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="services__item">
+                            <div class="services__item__icon">
+                                <img src="img/icons/si-1.png" alt="">
                             </div>
+                            <h4>Color Grading</h4>
+                            <p>Elevate your visuals with expert color grading that enhances every detail, 
+                                sets the perfect mood, and brings your creative vision to life.</p>
                         </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6">
-                            <div class="services__item">
-                                <div class="services__item__icon">
-                                    <img src="img/icons/si-4.png" alt="">
-                                </div>
-                                <h4>Motion Graphics</h4>
-                                <p>Tired of the same content flooding your feed? Stand out with unique,
-                                     professionally crafted motion graphics that captivate.</p>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="services__item">
+                            <div class="services__item__icon">
+                                <img src="img/icons/si-4.png" alt="">
                             </div>
+                            <h4>Motion Graphics</h4>
+                            <p>Tired of the same content flooding your feed? Stand out with unique,
+                                 professionally crafted motion graphics that captivate.</p>
                         </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6">
-                            <div class="services__item">
-                                <div class="services__item__icon">
-                                    <img src="img/icons/si-2.png" alt="">
-                                </div>
-                                <h4>Cleaning Your Videos</h4>
-                                <p>Polish your videos by trimming the excess, cleaning up the clutter, 
-                                    and keeping your audience hooked on every engaging moment.</p>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="services__item">
+                            <div class="services__item__icon">
+                                <img src="img/icons/si-2.png" alt="">
                             </div>
+                            <h4>Cleaning Your Videos</h4>
+                            <p>Polish your videos by trimming the excess, cleaning up the clutter, 
+                                and keeping your audience hooked on every engaging moment.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- Services Section End -->
+    </div>
+</section>
+<!-- Services Section End -->
 
-    <!-- Smooth Scroll -->
-    <script>
+<!-- Work Section Begin (Assuming you have this section with the id "work") -->
+<section id="work">
+    <!-- Your work section content here -->
+</section>
+<!-- Work Section End -->
+
+<!-- Smooth Scroll JavaScript -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Smooth scroll for first button (See More About Me)
+        document.getElementById('scroll-button-1').addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent default anchor link behavior
+            const targetSection = document.querySelector('#services');
+            targetSection.scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // Smooth scroll for second button (See for yourself)
         document.getElementById('scroll-button-2').addEventListener('click', function(event) {
             event.preventDefault(); // Prevent default anchor link behavior
             const targetSection = document.querySelector('#work');
             targetSection.scrollIntoView({ behavior: 'smooth' });
         });
-    </script>
+    });
+</script>
     
 
     <!-- Work Section Begin -->

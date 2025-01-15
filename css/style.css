@@ -305,7 +305,7 @@ ol {
 
 .header__logo {
   padding: 30px 0;
-  margin-left: -225px; /* Adjust this value to move the logo to the left */
+  left: 200px; /* Adjust this value to move the logo to the left */
 }
 .header__logo a {
   display: inline-block;
@@ -427,58 +427,19 @@ ol {
 /*---------------------
   Hero
 -----------------------*/
-.hero__slider.owl-carousel .owl-item.active .hero__text span {
-  top: 0;
-  opacity: 1;
-}
-.hero__slider.owl-carousel .owl-item.active .hero__text h2 {
-  top: 0;
-  opacity: 1;
-}
-.hero__slider.owl-carousel .owl-item.active .hero__text .primary-btn {
-  top: 0;
-  opacity: 1;
-}
-.hero__slider.owl-carousel .owl-dots {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 45px;
-  width: 100%;
-  max-width: 1140px;
-  margin: 0 auto;
-}
-.hero__slider.owl-carousel .owl-dots button {
-  color: #adadad;
-  font-size: 18px;
-  font-family: "Play", sans-serif;
-  margin-right: 16px;
+.hero {
   position: relative;
-  display: inline-block;
-}
-.hero__slider.owl-carousel .owl-dots button.active {
-  color: #ffffff;
-}
-.hero__slider.owl-carousel .owl-dots button.active:after {
-  background: #ffffff;
-  height: 2px;
-}
-.hero__slider.owl-carousel .owl-dots button:after {
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 100%;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.3);
-  content: "";
-}
-.hero__slider.owl-carousel .owl-dots button:last-child {
-  margin-right: 0;
+  overflow: hidden;
 }
 
 .hero__item {
-  height: 684px;
-  padding-top: 255px;
+  height: 684px; /* Adjust as necessary for your design */
+  display: flex;
+  align-items: center; /* Vertically centers content */
+  justify-content: flex-start; /* Align content to the left */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .hero__text span {
@@ -488,13 +449,9 @@ ol {
   letter-spacing: 2px;
   text-transform: uppercase;
   margin-bottom: 18px;
-  position: relative;
-  top: 100px;
-  opacity: 0;
-  -webkit-transition: all, 0.3s;
-  -o-transition: all, 0.3s;
-  transition: all, 0.3s;
+  opacity: 1;
 }
+
 .hero__text h2 {
   color: #ffffff;
   font-size: 60px;
@@ -503,20 +460,27 @@ ol {
   text-transform: uppercase;
   margin-bottom: 38px;
   position: relative;
-  top: 100px;
-  opacity: 0;
+  top: 0;
+  opacity: 1;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7); /* Shadow effect */
   -webkit-transition: all, 0.5s;
   -o-transition: all, 0.5s;
   transition: all, 0.5s;
 }
+
+
 .hero__text .primary-btn {
-  position: relative;
-  top: 100px;
-  opacity: 0;
-  -webkit-transition: all, 0.7s;
-  -o-transition: all, 0.7s;
-  transition: all, 0.7s;
+  padding: 14px 32px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
+
+
 
 /*---------------------
   Work
@@ -876,7 +840,7 @@ ol {
 
 .footer__top {
   padding: 30px 0;
-  margin-left: -35px; /* Adjust this value to move the logo to the left */
+  margin-left: -5px; /* Adjust this value to move the logo to the left */
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -1703,19 +1667,20 @@ ol {
 }
 
 .contact__widget__item__icon {
-  height: 70px;
-  width: 70px;
-  border: 1px solid rgba(225, 225, 225, 0.5);
-  line-height: 80px;
+  height: 50px; /* Reduced size for icons */
+  width: 50px;  /* Fixed size for the icon */
+  border: 0px solid rgba(225, 225, 225, 0.5);
+  line-height: 50px; /* Adjusted for center alignment */
   text-align: center;
   border-radius: 50%;
   float: left;
   margin-right: 30px;
 }
 
-.contact__widget__item__icon i {
-  font-size: 30px;
-  color: #ffffff;
+.contact__widget__item__icon img {
+  width: 100%; /* Ensures that the icon image fits within the circle */
+  height: 100%; /* Ensures that the icon image fits within the circle */
+  object-fit: contain; /* Maintains the aspect ratio of the image */
 }
 
 .contact__widget__item__text {
@@ -1733,6 +1698,40 @@ ol {
 .contact__widget__item__text p {
   margin-bottom: 0;
 }
+
+/* Responsive Design for phone screens */
+@media screen and (max-width: 768px) {
+  .contact__widget__item__icon {
+    height: 40px;  /* Adjust icon size for smaller screens */
+    width: 40px;   /* Maintain smaller size for icons */
+    margin-right: 20px; /* Adjust margin for smaller screens */
+  }
+
+  .contact__widget__item__text h4 {
+    font-size: 18px; /* Adjust heading size for smaller screens */
+  }
+
+  .contact__widget__item__text p {
+    font-size: 14px; /* Adjust paragraph text for smaller screens */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .contact__widget__item__icon {
+    height: 35px; /* Further adjust icon size on very small screens */
+    width: 35px;
+    margin-right: 15px; /* Adjust spacing for very small screens */
+  }
+
+  .contact__widget__item__text h4 {
+    font-size: 16px; /* Reduce font size for smaller devices */
+  }
+
+  .contact__widget__item__text p {
+    font-size: 13px; /* Reduce font size for smaller devices */
+  }
+}  
+
 
 /* Contact Me Button Style */
 .whatsapp-container {
@@ -2326,6 +2325,8 @@ ol {
     box-shadow: 0 0 10px 2px rgba(0, 200, 255, 0.8);
   }
 }
+
+/* Contact Wideget Icons */
 
 
 

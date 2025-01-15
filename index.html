@@ -76,22 +76,7 @@
         </div>
     
         <!-- Contact Me Button Positioned at the Top Right -->
-        <a href="#" class="primary-contact" id="contact-header">Contact Me</a>
-
-<script>
-  document.getElementById("contact-header").addEventListener("click", function(event) {
-    event.preventDefault(); // Prevents the default link behavior
-
-    // Get the current URL
-    let currentUrl = window.location.href;
-
-    // Check if the URL already has '/contact.html'
-    if (!currentUrl.includes("/contact.html")) {
-      // Append '/contact.html' to the existing URL
-      window.location.href = currentUrl + "/contact.html";
-    }
-  });
-</script>
+        <a href="./contact.html" class="primary-contact" id="contact-header">Contact Me</a>
         
         </a>
     </header>
@@ -446,21 +431,7 @@
                             <h5>My Identity</h5>
                             <ul>
                                 <li><a href="#">Who I am</a></li>
-                                <li><a href="#" id="contact-us">Contact us</a></li>
-                                    <script>
-                                    document.getElementById("contact-us").addEventListener("click", function(event) {
-                                        event.preventDefault(); // Prevents the default link behavior
-
-                                        // Get the current URL
-                                        let currentUrl = window.location.href;
-
-                                        // Check if the URL already has '/contact.html'
-                                        if (!currentUrl.includes("/contact.html")) {
-                                        // Append '/contact.html' to the existing URL
-                                        window.location.href = currentUrl + "/contact.html";
-                                        }
-                                    });
-                                    </script>
+                                <li><a href="./contact.html">Contact us</a></li>
                                 <li><a href="#services" id="scroll-button-2">Services</a></li>
                             </ul>
                         </div>

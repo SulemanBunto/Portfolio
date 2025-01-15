@@ -93,11 +93,32 @@
     color: #ffffff;
     text-transform: uppercase;
     letter-spacing: 2px;
-    position: absolute;  /* Change to absolute for alignment within the header */
-    top: 20px;           /* Adjust this value for vertical position */
-    right: 90px;         /* Adjust this value for horizontal position */
-    z-index: 1;          /* Keeps it above other elements */
+    position: absolute; /* Position relative to the parent container */
+    top: 50%;           /* Center vertically */
+    transform: translateY(-50%); /* Adjust to exact center */
+    right: 90px;        /* Default distance from the right side for larger screens */
+    z-index: 1;         /* Keeps it above other elements */
 }
+
+/* For screens smaller than 768px (common phone width) */
+@media screen and (max-width: 768px) {
+    .primary-contact {
+        right: 20px; /* Adjust distance from right for smaller screens */
+        font-size: 13px; /* Optionally adjust font size for smaller screens */
+        padding: 12px 28px 10px; /* Adjust padding if needed */
+    }
+}
+
+/* For screens smaller than 480px (extra small devices) */
+@media screen and (max-width: 480px) {
+    .primary-contact {
+        right: 10px; /* Further adjust for very small screens */
+        font-size: 12px; /* Further reduce font size */
+    }
+}
+
+
+
 
 .primary-contact:hover:before {
     height: 100%;
@@ -138,25 +159,25 @@
 
     <!-- Header End -->
 
-    <!-- Hero Section Begin -->
-    <section class="hero">
-        <div class="hero__slider owl-carousel">
-            <div class="hero__item set-bg" data-setbg="img/hero/hero-1.jpg">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="hero__text">
-                                <span>Portfolio</span>
-                                <h2>Suleman Nouman</h2>
-                                <a href="#services" class="primary-btn" id="scroll-button-1">See More About Me</a>   
-                            </div>
-                        </div>
+<!-- Hero Section Begin -->
+<section class="hero">
+    <div class="hero__item" style="background-image: url('img/hero/hero-1.jpg');">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="hero__text">
+                        <span>Portfolio</span>
+                        <h2>Suleman Nouman</h2>
+                        <a href="#services" class="primary-btn" id="scroll-button-1">See More About Me</a>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- Hero Section End -->
+    </div>
+</section>
+<!-- Hero Section End -->
+
+
 
 <!-- Smooth Scroll -->
     <script>

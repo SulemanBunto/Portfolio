@@ -316,6 +316,29 @@ const observer = new IntersectionObserver((entries, observer) => {
 observer.observe(counterSection);
 
 
+// Videos Archive
+
+document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.getElementById("video-modal");
+    const iframe = document.getElementById("video-iframe");
+    const closeModal = document.getElementById("close-modal");
+    const playButtons = document.querySelectorAll(".video-popup");
+
+    playButtons.forEach((button) => {
+        button.addEventListener("click", function (e) {
+            e.preventDefault();
+            const videoUrl = this.getAttribute("data-video");
+            iframe.src = videoUrl;
+            modal.classList.add("active");
+        });
+    });
+
+    closeModal.addEventListener("click", function () {
+        modal.classList.remove("active");
+        iframe.src = ""; // Stop video playback
+    });
+});
+
 
 
 

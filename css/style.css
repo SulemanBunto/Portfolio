@@ -483,7 +483,7 @@ ol {
 
 
 /*---------------------
-  Work
+  Work Section Styling
 -----------------------*/
 .work {
   overflow: hidden;
@@ -502,27 +502,31 @@ ol {
   float: left;
   position: relative;
   overflow: hidden;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
+
 .work__item:hover .work__item__hover {
   bottom: 0;
 }
+
 .work__item.large__item {
   height: 633px !important;
   width: calc(33.33% - 10px);
 }
+
 .work__item.wide__item {
   width: calc(33.33% - 10px);
   height: 311px !important;
 }
+
+/* .work__item.small__item {
+  height: 311px !important;
+  width: calc(33.33% - 10px);
+} */
+
 .work__item .play-btn {
   display: inline-block;
   color: #ffffff;
@@ -533,6 +537,13 @@ ol {
   text-align: center;
   border: 1px solid rgba(255, 255, 255, 0.7);
   border-radius: 50%;
+  background: rgba(0, 0, 0, 0.6);
+  transition: all 0.3s ease;
+}
+
+.work__item .play-btn:hover {
+  background: rgba(255, 255, 255, 0.9);
+  color: #100028;
 }
 
 .grid-sizer {
@@ -546,15 +557,15 @@ ol {
   bottom: -300px;
   width: 100%;
   padding: 25px 30px 20px;
-  -webkit-transition: all, 0.5s;
-  -o-transition: all, 0.5s;
-  transition: all, 0.5s;
+  transition: all 0.5s ease;
 }
+
 .work__item__hover h4 {
   font-size: 22px;
   color: #ffffff;
   font-weight: 700;
 }
+
 .work__item__hover ul li {
   color: #adadad;
   list-style: none;
@@ -563,18 +574,74 @@ ol {
   position: relative;
   display: inline-block;
 }
+
 .work__item__hover ul li:after {
   position: absolute;
   right: -18px;
   top: 1px;
   content: "/";
 }
+
 .work__item__hover ul li:last-child {
   margin-right: 0;
 }
+
 .work__item__hover ul li:last-child:after {
   display: none;
 }
+
+/*---------------------
+  Video Modal Styling
+-----------------------*/
+.video-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.video-modal.active {
+  display: flex;
+}
+
+.video-modal-content {
+  width: 90%;
+  max-width: 800px;
+  position: relative;
+}
+
+.video-modal iframe {
+  width: 100%;
+  height: 450px;
+  border-radius: 8px;
+  border: none;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 24px;
+  color: white;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+  color: #f00;
+}
+
+
+
 
 /*---------------------
   Counter
@@ -1667,8 +1734,6 @@ ol {
 }
 
 .contact__widget__item__icon {
-  height: 50px; /* Reduced size for icons */
-  width: 50px;  /* Fixed size for the icon */
   border: 0px solid rgba(225, 225, 225, 0.5);
   line-height: 50px; /* Adjusted for center alignment */
   text-align: center;
@@ -1699,38 +1764,90 @@ ol {
   margin-bottom: 0;
 }
 
-/* Responsive Design for phone screens */
-@media screen and (max-width: 768px) {
-  .contact__widget__item__icon {
-    height: 40px;  /* Adjust icon size for smaller screens */
-    width: 40px;   /* Maintain smaller size for icons */
-    margin-right: 20px; /* Adjust margin for smaller screens */
+/* Shared Styles for Hover and Click Effects */
+.contact__widget__item__icon {
+  flex: 0 0 50px; /* Fixed width for icons */
+  text-align: center; /* Center icon inside its container */
+  margin: 0; /* Remove unnecessary margins */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.7s ease, box-shadow 0.7s ease; /* Elongated animation duration */
+}
+
+.contact__widget__item__icon img {
+  width: 40px; /* Icon size */
+  height: 40px;
+  object-fit: contain; /* Maintain aspect ratio */
+}
+
+/* Hover Effect: Noticeable Shrink */
+.contact__widget__item__icon:hover {
+  transform: scale(0.98); /* Subtle shrink for hover */
+}
+
+/* Click Effect: Smaller Shrink and Blue Outer Glow */
+.contact__widget__item__icon:active {
+  transform: scale(0.94); /* Further shrink for click */
+  box-shadow: 0 0 30px 6px rgba(0, 122, 255, 1); /* Enhanced blue outer glow */
+}
+
+/* Mobile View (Max Width: 768px) */
+@media (max-width: 768px) {
+  .contact__widget__item {
+    display: flex; /* Align items horizontally */
+    align-items: center; /* Vertically center-align icons and text */
+    margin-bottom: 40px; /* Increase vertical gap */
+    margin-left: 20px; /* Move the item to the right */
+  }
+
+  .contact__widget__item__text {
+    flex: 1; /* Text container takes remaining width */
+    text-align: left; /* Align text to the left */
+    padding-left: 30px; /* Increased spacing between icons and text */
   }
 
   .contact__widget__item__text h4 {
-    font-size: 18px; /* Adjust heading size for smaller screens */
+    font-size: 16px; /* Reduced heading size */
+    color: #ffffff;
+    font-weight: 700;
+    margin: 0; /* Remove extra margin */
   }
 
   .contact__widget__item__text p {
-    font-size: 14px; /* Adjust paragraph text for smaller screens */
+    font-size: 12px; /* Reduced paragraph size */
+    color: #ffffff;
+    margin: 0; /* Ensure no unnecessary margin */
   }
 }
 
-@media screen and (max-width: 480px) {
-  .contact__widget__item__icon {
-    height: 35px; /* Further adjust icon size on very small screens */
-    width: 35px;
-    margin-right: 15px; /* Adjust spacing for very small screens */
-  }
+/* Desktop View (Default Styles) */
+.contact__widget__item {
+  display: flex; /* Align items horizontally */
+  align-items: center; /* Vertically center-align icons and text */
+  margin-bottom: 50px; /* Slightly larger vertical gap */
+}
 
-  .contact__widget__item__text h4 {
-    font-size: 16px; /* Reduce font size for smaller devices */
-  }
+.contact__widget__item__text {
+  flex: 1; /* Text container takes remaining width */
+  text-align: left; /* Align text to the left */
+  padding-left: 40px; /* More spacing between icons and text for desktop */
+}
 
-  .contact__widget__item__text p {
-    font-size: 13px; /* Reduce font size for smaller devices */
-  }
-}  
+.contact__widget__item__text h4 {
+  font-size: 18px; /* Normal heading size for desktop */
+  color: #ffffff;
+  font-weight: 700;
+  margin: 0; /* Remove extra margin */
+}
+
+.contact__widget__item__text p {
+  font-size: 14px; /* Normal paragraph size for desktop */
+  color: #ffffff;
+  margin: 0; /* Ensure no unnecessary margin */
+}
+
+
 
 
 /* Contact Me Button Style */
@@ -2281,52 +2398,6 @@ ol {
 }
 
 /* Contact Ions */
-
-/* Ensure contact link is an inline-block */
-.contact-link {
-  display: inline-block;
-  text-decoration: none;  /* Remove underline from the link */
-  position: relative; /* Needed for positioning icon properly */
-}
-
-/* Style for the icon container */
-.contact__widget__item__icon {
-  font-size: 50px; /* Adjust the size of the icons */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
-  color: #00c8ff; /* Set initial icon color */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: 100%;
-}
-
-/* Hover effect: Shrink the icon and add blue outer glow */
-.contact-link:hover .contact__widget__item__icon {
-  transform: scale(0.95);  /* Slight shrink */
-  box-shadow: 0 0 10px 2px rgba(0, 200, 255, 0.8);  /* Outer blue glow */
-  animation: iconHover 0.3s ease-in-out forwards; /* Trigger keyframe animation */
-}
-
-/* Click effect: Further shrink and enhance the blue outer glow */
-.contact-link:active .contact__widget__item__icon {
-  transform: scale(0.9);  /* Further shrink on click */
-  box-shadow: 0 0 15px 5px rgba(0, 200, 255, 1);  /* Stronger blue glow */
-}
-
-/* Keyframes for smooth hover animation */
-@keyframes iconHover {
-  0% {
-    transform: scale(1);
-    box-shadow: 0 0 0px 0px rgba(0, 200, 255, 0);
-  }
-  100% {
-    transform: scale(0.95);
-    box-shadow: 0 0 10px 2px rgba(0, 200, 255, 0.8);
-  }
-}
-
-/* Contact Wideget Icons */
 
 
 
